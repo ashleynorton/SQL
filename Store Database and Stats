@@ -1,0 +1,29 @@
+CREATE TABLE store (
+    id INTEGER PRIMARY KEY,
+    item TEXT,
+    price INTEGER,
+    quantity INTEGER,
+    section TEXT
+);
+
+INSERT INTO store VALUES
+    (1, "candy bar", 0.99, 2, "food"),
+    (2, "soccer cleats", 75.00, 1, "shoes"),
+    (3, "sports bra", 29.99, 3, "clothing"),
+    (4, "tent", 99.00, 1, "camping"),
+    (5, "bike", 199.99, 4, "sporting goods"),
+    (6, "chips", 2.99, 2, "food"),
+    (7, "helmet", 29.99, 4, "sporting goods"),
+    (8, "sleeping bags", 39.50, 4, "camping"),
+    (9, "cooler", 49.99, 2, "camping"),
+    (10, "jogging pants", 39.99, 1, "clothing"),
+    (11, "women's shorts", 19.99, 1, "clothing"),
+    (12, "boy's shorts", 15.99, 2, "clothing"),
+    (13, "baseball cap", 24.99, 4, "clothing"),
+    (14, "mosquito repellent", 9.99, 2, "camping"),
+    (15, "shirts", 22.99, 3, "clothing")
+;
+
+SELECT * FROM store ORDER BY price;
+
+SELECT SUM(quantity) FROM store;
