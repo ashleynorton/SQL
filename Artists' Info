@@ -1,0 +1,58 @@
+CREATE TABLE artists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    hometown_id INTEGER);
+    
+INSERT INTO artists (name, hometown_id) VALUES ("Beyonce Knowles-Carter", 1);
+INSERT INTO artists (name, hometown_id) VALUES ("Jay-Z", 2);
+INSERT INTO artists (name, hometown_id) VALUES ("Michael Jackson", 3);
+INSERT INTO artists (name, hometown_id) VALUES ("Prince", 4);
+INSERT INTO artists (name, hometown_id) VALUES ("James Blake", 5);
+INSERT INTO artists (name, hometown_id) VALUES ("Red Hot Chili Peppers", 6);
+INSERT INTO artists (name, hometown_id) VALUES ("Masego", 7);
+INSERT INTO artists (name, hometown_id) VALUES ("Sir", 8);
+INSERT INTO artists (name, hometown_id) VALUES ("Berhana", 9);
+INSERT INTO artists (name, hometown_id) VALUES ("Tems", 10);
+INSERT INTO artists (name, hometown_id) VALUES ("Big K.R.I.T.", 11);
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    artist_id INTEGER,
+    song TEXT);
+
+INSERT INTO songs (artist_id, song) VALUES (1, "Crazy In Love");
+INSERT INTO songs (artist_id, song) VALUES (2, "Excuse Me Miss");
+INSERT INTO songs (artist_id, song) VALUES (3, "Off The Wall");
+INSERT INTO songs (artist_id, song) VALUES (4, "Diamonds and Pearls");
+INSERT INTO songs (artist_id, song) VALUES (5, "Limit To Your Love");
+INSERT INTO songs (artist_id, song) VALUES (6, "Dani California");
+INSERT INTO songs (artist_id, song) VALUES (7, "Tadow");
+INSERT INTO songs (artist_id, song) VALUES (8, "D'Evils");
+INSERT INTO songs (artist_id, song) VALUES (9, "Grey Luh");
+INSERT INTO songs (artist_id, song) VALUES (10, "Free Mind");
+INSERT INTO songs (artist_id, song) VALUES (11, "Get Away");
+
+CREATE TABLE hometowns (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    artist_id INTEGER,
+    hometown TEXT);
+    
+INSERT INTO hometowns (hometown) VALUES ("Houston, TX");
+INSERT INTO hometowns (hometown) VALUES ("Brooklyn, NY");
+INSERT INTO hometowns (hometown) VALUES ("Gary, IN");
+INSERT INTO hometowns (hometown) VALUES ("Minneapolis, MN");
+INSERT INTO hometowns (hometown) VALUES ("London, England");
+INSERT INTO hometowns (hometown) VALUES ("Los Angeles, CA");
+INSERT INTO hometowns (hometown) VALUES ("Kingston, JM");
+INSERT INTO hometowns (hometown) VALUES ("Inglewood, CA");
+INSERT INTO hometowns (hometown) VALUES ("Atlanta, GA");
+INSERT INTO hometowns (hometown) VALUES ("Lagos, NG");
+INSERT INTO hometowns (hometown) VALUES ("Meridian, MS");
+
+
+SELECT a.name, s.song, h.hometown
+FROM artists a
+JOIN songs s 
+ON a.id = s.artist_id
+JOIN hometowns h
+ON h.id = a.hometown_id;
