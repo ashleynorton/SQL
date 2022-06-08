@@ -17,8 +17,9 @@ INNER JOIN BIT_DB.FebSales fs
 ON c.order_id = fs.orderID;
 
 #4. Which product was the cheapest one sold in January, and what was the price? 
-SELECT product, MIN(price)
-FROM BIT_DB.JanSales;
+SELECT DISTINCT product, MIN(price)
+FROM BIT_DB.JanSales
+GROUP BY product;
 
 #5. What is the total revenue for each product sold in January? 
 SELECT product, SUM(quantity) * price AS revenue
@@ -32,7 +33,7 @@ WHERE location = "548 Lincoln St, Seattle, WA 98101"
 GROUP BY product;
 
 #7. How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
-SELECT COUNT(c.acctnum), AVG(quantity * price)
+SELECT COUNT(c.acctnum), AVG(quantity) * price
 FROM BIT_DB.customers c
 INNER JOIN BIT_DB.FebSales fs
 ON c.order_id = fs.orderID
